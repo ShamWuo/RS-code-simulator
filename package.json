@@ -4,7 +4,7 @@
   "description": "Simulate and test Roblox Studio scripts directly inside Visual Studio Code.",
   "version": "0.0.1",
   "publisher": "Samuel Wu",
-  "license": "MIT",
+  "license": "CC-BY-NC-4.0",
   "engines": {
     "vscode": "^1.105.0"
   },

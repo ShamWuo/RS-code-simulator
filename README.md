@@ -55,6 +55,11 @@ This extension contributes the following settings (command palette → `Preferen
 
 Feedback and ideas to improve the simulation fidelity are always welcome.
 
+## License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
+See `LICENSE` and `LICENSE_CC-BY-NC-4.0.txt` for details. The license allows sharing and adaptation for non-commercial purposes with attribution.
+
 ## Packaging & Publishing
 
 1. Ensure you are signed in with a Visual Studio Marketplace publisher ID and have the `vsce` CLI installed (`npm install -g @vscode/vsce`).
