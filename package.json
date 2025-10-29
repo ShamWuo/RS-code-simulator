@@ -1,0 +1,126 @@
+{
+  "name": "rs-code-simulator",
+  "displayName": "RS Code Simulator",
+  "description": "Simulate and test Roblox Studio scripts directly inside Visual Studio Code.",
+  "version": "0.0.1",
+  "publisher": "Samuel Wu",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShamWuo/RS-code-simulator"
+  },
+  "bugs": {
+    "url": "https://github.com/ShamWuo/RS-code-simulator/issues"
+  },
+  "homepage": "https://github.com/yourusername/rs-code-simulator#readme",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e223b",
+    "theme": "dark"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "roblox",
+    "luau",
+    "simulator",
+    "testing"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onLanguage:lua",
+    "onLanguage:luau"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rs-code-simulator.runCurrentFile",
+        "title": "Roblox: Run Current Script",
+        "category": "Roblox Simulator"
+      },
+      {
+        "command": "rs-code-simulator.runWorkspace",
+        "title": "Roblox: Run Workspace Scripts",
+        "category": "Roblox Simulator"
+      }
+    ],
+    "configuration": {
+      "title": "RS Code Simulator",
+      "properties": {
+        "rs-code-simulator.runtime.stubbedServices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Players",
+            "ReplicatedStorage",
+            "ServerScriptService",
+            "StarterPlayer",
+            "Lighting",
+            "CollectionService",
+            "PathfindingService",
+            "RunService"
+          ],
+          "description": "Roblox services that should be available as stubbed mock tables during simulation."
+        },
+        "rs-code-simulator.runtime.preloadScripts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Array of Luau files to execute before the active script. Paths can be absolute, workspace-relative, or relative to the current document."
+        },
+        "rs-code-simulator.runtime.showOutputOnSuccess": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Roblox simulator output channel after a successful run when any output was produced."
+        },
+        "rs-code-simulator.runtime.runOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically run the simulator on Luau files whenever they are saved."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "fengari": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.105.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "eslint": "^9.36.0",
+    "esbuild": "^0.25.10",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
