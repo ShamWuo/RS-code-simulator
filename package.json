@@ -8,6 +8,7 @@
   "engines": {
     "vscode": "^1.105.0"
   },
+  
   "repository": {
     "type": "git",
     "url": "https://github.com/ShamWuo/RS-code-simulator"
@@ -15,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/ShamWuo/RS-code-simulator/issues"
   },
-  "homepage": "https://github.com/yourusername/rs-code-simulator#readme",
+  "homepage": "https://github.com/ShamWuo/RS-code-simulator#readme",
   "icon": "media/icon.png",
   "galleryBanner": {
     "color": "#1e223b",
